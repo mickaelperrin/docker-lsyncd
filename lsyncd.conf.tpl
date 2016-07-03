@@ -14,7 +14,7 @@ sync {
   default.rsync,
   source = "{{ $element }}",
   target = "{{ index $destinations $index }}",
-  init = {{ default .Env.INIT "false" }},
+  init = false,
   rsync = {
     binary = "/usr/bin/rsync",
     archive = true,
