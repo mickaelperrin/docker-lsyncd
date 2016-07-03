@@ -3,7 +3,7 @@ FROM alpine:latest
 ENV DOCKERIZE_VERSION v0.2.0
 
 # Lsyncd
-RUN apk add --no-cache lsyncd
+RUN apk add --no-cache lsyncd bash
 
 # Dockerize
 RUN apk add --no-cache wget \
@@ -17,5 +17,5 @@ RUN mkdir /lsyncd-entrypoint.d \
 
 COPY ./lsyncd.conf.tpl /
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD dockerize -template /lsyncd.conf.tpl -template /lsyncd.conf.tpl:/lsyncd.conf lsyncd -nodaemon /lsyncd.conf
+ENTRYPOINT ["/lsyncd-entrypoint.sh"]
