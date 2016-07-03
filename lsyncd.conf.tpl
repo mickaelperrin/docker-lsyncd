@@ -21,8 +21,7 @@ sync {
     perms = true,
     owner = true,
     update = true,
-    _extra = {"-go"},
-    temp_dir = "/tmp/rsync-{{ $index }}",
+    _extra = {"-go"}
   },
   exclude = { {{ range $i, $exclude := $excludes }}{{ if $i }}, {{end}}"{{ $exclude }}"{{ end }} }
 }
