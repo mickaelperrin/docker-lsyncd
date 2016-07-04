@@ -19,7 +19,7 @@ if [ "$1" == 'dockerize' ]; then
             *)        echo "$0: ignoring $f" ;;
         esac
     done
-else
-    exec "$@"
 fi
+
+exec "$@"
 
