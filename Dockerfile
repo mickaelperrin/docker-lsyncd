@@ -17,5 +17,5 @@ RUN mkdir /lsyncd-entrypoint.d \
 
 COPY ./lsyncd.conf.tpl /
 
-CMD dockerize -template /lsyncd.conf.tpl -template /lsyncd.conf.tpl:/lsyncd.conf lsyncd -nodaemon /lsyncd.conf
+CMD [ "dockerize", "-template", "/lsyncd.conf.tpl", "-template", "/lsyncd.conf.tpl:/lsyncd.conf", "lsyncd", "-nodaemon", "/lsyncd.conf" ]
 ENTRYPOINT ["/lsyncd-entrypoint.sh"]
